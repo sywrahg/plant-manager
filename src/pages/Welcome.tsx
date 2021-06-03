@@ -8,47 +8,55 @@ import fonts from '../styles/fonts';
 
 export function Welcome(){
     return(
-        <SafeAreaView style={style.container}>
-            <Text style={style.title}>
-                Gerencie{'\n'}
-                suas plantas de{'\n'}
-                forma fácil
-            </Text>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.wrapper}>
+                <Text style={styles.title}>
+                    Gerencie{'\n'}
+                    suas plantas de{'\n'}
+                    forma fácil
+                </Text>
 
-            <Image 
-            source={watering} 
-            style={style.image}
-            resizeMode='contain' 
-            />
+                <Image 
+                source={watering} 
+                style={styles.image}
+                resizeMode='contain' 
+                />
 
-            <Text style={style.subtitle}>
-                Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
-                sempre que precisar.
-            </Text>
+                <Text style={styles.subtitle}>
+                    Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
+                    sempre que precisar.
+                </Text>
 
-            <TouchableOpacity style={style.button} 
-            activeOpacity={0.7}>
-                <Feather 
-                    name="chevron-right" 
-                    style={style.buttonIcon}/>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.button} 
+                activeOpacity={0.7}>
+                    <Feather 
+                        name="chevron-right" 
+                        style={styles.buttonIcon}/>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container:{
         flex: 1,
+        
+    },
+    wrapper:{
+        flex: 1,
         alignItems: 'center',
-        justifyContent:'space-around'
+        justifyContent:'space-around',
+        paddingHorizontal: 20
+
     },
     title: {
-        fontSize: 32,
+        fontSize: 28,
         textAlign: 'center',
         color: colors.heading,
         marginTop: 38,
         fontFamily: fonts.heading,
-        lineHeight: 38
+        lineHeight: 34
     },
     subtitle: {
         textAlign:'center',
