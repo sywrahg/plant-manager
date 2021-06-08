@@ -8,6 +8,7 @@ import {
     KeyboardAvoidingView,
     Platform
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {Button} from '../components/Button'
 
 import colors from '../styles/colors';
@@ -19,13 +20,6 @@ export function UserIdentification(){
     const [isFilled, setIsFilled] = useState(false);
     const [name, setName] = useState<string>();
 
-    function handleInputChange(value: string){
-        setIsFocused(!!value);
-        setName(value);
-        
-
-    }
-    
     function handleInputBlur(){
         setIsFocused(false);
         setIsFilled(!!name);
@@ -34,6 +28,17 @@ export function UserIdentification(){
     function handleInputFocus(){
         setIsFocused(true);
     }
+
+    function handleInputChange(value: string){
+        setIsFocused(!!value);
+        setName(value);
+    }
+
+    const navigation = useNavigation();
+    function handleSubmit(){
+        navigation.navigate('Confirmation');
+    }
+
     return(
         <SafeAreaView style={styles.container}>
             <KeyboardAvoidingView 
@@ -62,7 +67,10 @@ export function UserIdentification(){
                         />
                         
                         <View style={styles.footer}>
-                            <Button/>
+                            <Button
+                                title="Confirmar"
+                                onPress={handleSubmit}
+                            />
                         </View>
                         
                     </View>
